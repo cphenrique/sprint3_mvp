@@ -27,7 +27,6 @@ def home():
     """
     return redirect('/openapi/swagger')
 
-
 @app.get('/analistas', tags=[analista_tag],
          responses={"200": ListagemAnalistasSchema, "404": ErrorSchema})
 def get_analistas():

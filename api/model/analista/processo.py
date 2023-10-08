@@ -12,9 +12,9 @@ class Processo(Base):
     nome = Column(String(128), unique=True)
     descricao = Column(String(1024))
 
-    analistas = relationship('Analista', secondary=analista_processo, backref='processos')
+    #analistas = relationship('Analista', secondary=analista_processo, backref='processos')
 
-    atividades = relationship('Atividade')
+    atividades = relationship('Atividade', backref='processo')
 
     def __init__(self, nome:str, descricao:str):
         """
