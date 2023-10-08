@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, ForeignKey, String, Integer
 from sqlalchemy.orm import relationship
 
 from model import Base
@@ -13,6 +13,8 @@ class Analista(Base):
     usuario = Column(String(128), unique=True)
     email = Column(String(128), unique=True)
 
+    area_id = Column(Integer, ForeignKey('area.area_id'), nullable=False)
+    
     processos = relationship('Processo', secondary=analista_processo, backref='analistas')
 
     def __init__(self, nome:str, usuario:str, email:str):
