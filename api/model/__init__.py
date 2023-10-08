@@ -6,10 +6,10 @@ import os
 # importando os elementos definidos no modelo
 from model.base import Base
 
-from model.analista.analista import Analista
-from model.analista.processo import Processo
-from model.analista.atividade import Atividade
-from model.analista.analista_processo import analista_processo
+from model.atendimento.analista import Analista
+from model.atendimento.processo import Processo
+from model.atendimento.atividade import Atividade
+from model.atendimento.analista_processo import analista_processo
 
 from model.local.empresa import Empresa
 from model.local.unidade import Unidade

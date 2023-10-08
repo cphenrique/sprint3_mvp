@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 
 from model import Base
 
-from model.analista.analista_processo import analista_processo
+from model.atendimento.analista_processo import analista_processo
 
 class Analista(Base):
     __tablename__ = 'analista'

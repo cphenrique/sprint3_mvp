@@ -1,3 +1,3 @@
-from route.analista.analista import configure_analista_routes
-from route.analista.processo import configure_processo_routes
-from route.analista.atividade import configure_atividade_routes
+from route.atendimento.analista import configure_analista_routes
+from route.atendimento.processo import configure_processo_routes
+from route.atendimento.atividade import configure_atividade_routes
