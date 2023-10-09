@@ -11,7 +11,7 @@ class Ticket(Base):
     analista_id = Column(Integer, ForeignKey('analista.analista_id'), nullable=False)
     formulario_id = Column(Integer, ForeignKey('formulario.formulario_id'), nullable=False)
     prioridade_id = Column(Integer, ForeignKey('prioridade.prioridade_id'), nullable=False)
-    estado_id = Column(Integer, ForeignKey('prioridade.prioridade_id'), nullable=False)
+    estado_id = Column(Integer, ForeignKey('estado.estado_id'), nullable=False)
 
 
     def __init__(self):
