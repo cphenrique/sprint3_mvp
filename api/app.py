@@ -30,3 +30,7 @@ def home():
 configure_analista_routes(app)
 configure_processo_routes(app)
 configure_atividade_routes(app)
+
+configure_empresa_routes(app)
+configure_unidade_routes(app)
+configure_area_routes(app)
