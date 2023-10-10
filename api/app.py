@@ -2,7 +2,6 @@ from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
 
 from model import Session
-from model import Analista, Processo, Atividade
 
 from schemas import *
 
@@ -37,3 +36,9 @@ configure_unidade_routes(app)
 configure_area_routes(app)
 
 # configura as rotas para o Ticket
+configure_ticket_routes(app)
+configure_estado_routes(app)
+configure_prioridade_routes(app)
+configure_formulario_routes(app)
+configure_campo_routes(app)
+configure_valor_routes(app)

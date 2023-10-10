@@ -13,7 +13,7 @@ ticket_tag = Tag(name='Ticket', description='Adição, visualização e atualiza
 def configure_ticket_routes(app: Flask):
     @app.get('/tickets', tags=[ticket_tag],
             responses={"200": ListagemTicketsSchema, "404": ErrorSchema})
-    def get_analistas():
+    def get_tickets():
         """ Faz a busca por todos os Projetos cadastrados na base de dados.
 
         Retorna para uma representação dos projetos.

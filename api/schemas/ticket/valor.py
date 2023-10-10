@@ -21,7 +21,7 @@ class ValorViewSchema(BaseModel):
     ticket_id: int = 1
 
 
-class ListagemValorsSchema(BaseModel):
+class ListagemValoresSchema(BaseModel):
     """ Define como uma listagem de projetos será retornada.
     """
     valores:List[ValorSchema]
