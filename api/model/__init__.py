@@ -19,6 +19,7 @@ from model.local.departamento import Departamento
 from model.ticket.ticket import Ticket
 from model.ticket.prioridade import Prioridade
 from model.ticket.estado import Estado
+from model.ticket.ticket_estado import ticket_estado
 from model.ticket.formulario import Formulario
 from model.ticket.campo import Campo
 from model.ticket.formulario_campo import formulario_campo
