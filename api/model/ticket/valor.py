@@ -7,6 +7,7 @@ class Valor(Base):
     __tablename__ = 'valor'
 
     id = Column("valor_id", Integer, primary_key=True)
+    valor = Column(String(1024), nullable=False)
     
     campo_id = Column(Integer, ForeignKey('campo.campo_id'), nullable=False)
     ticket_id = Column(Integer, ForeignKey('ticket.ticket_id'), nullable=False)

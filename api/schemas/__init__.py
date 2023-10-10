@@ -7,3 +7,10 @@ from schemas.atendimento.atividade import AtividadeSchema, AtividadeViewSchema, 
 from schemas.local.empresa import *
 from schemas.local.unidade import *
 from schemas.local.area import *
+
+from schemas.ticket.ticket import *
+from schemas.ticket.estado import *
+from schemas.ticket.prioridade import *
+from schemas.ticket.formulario import *
+from schemas.ticket.campo import *
+from schemas.ticket.valor import *
