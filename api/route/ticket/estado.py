@@ -113,7 +113,7 @@ def configure_estado_routes(app: Flask):
             return apresenta_estado(estado), 200
 
 
-    @app.delete('/estado', tags=[estado_id],
+    @app.delete('/estado', tags=[estado_tag],
                 responses={"200": EstadoDelSchema, "404": ErrorSchema})
     def del_estado(query: EstadoBuscaSchema):
         """Deleta um Projeto a partir do nome do projeto informado
