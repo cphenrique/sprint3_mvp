@@ -33,111 +33,111 @@ def configure_formulario_routes(app: Flask):
             return apresenta_formularios(formularios), 200
         
 
-    # @app.get('/analista', tags=[analista_tag],
-    #      responses={"200": AnalistaViewSchema, "404": ErrorSchema})
-    # def get_analista(query: AnalistaBuscaPorIDSchema):
-    #     """Faz a busca por um Produto a partir do id do produto
+    @app.get('/formulario', tags=[formulario_tag],
+         responses={"200": FormularioViewSchema, "404": ErrorSchema})
+    def get_formulario(query: FormularioBuscaSchema):
+        """Faz a busca por um Produto a partir do id do produto
 
-    #     Retorna uma representação dos produtos e comentários associados.
-    #     """
-    #     analista_id = query.id
-    #     logger.info(f"Coletando dados sobre o Analista #{analista_id}")
-    #     # criando conexão com a base
-    #     session = Session()
-    #     # fazendo a busca
-    #     analista = session.query(Analista).filter(Analista.id == analista_id).first()
+        Retorna uma representação dos produtos e comentários associados.
+        """
+        formulario_id = query.id
+        logger.info(f"Coletando dados sobre o Formulario #{formulario_id}")
+        # criando conexão com a base
+        session = Session()
+        # fazendo a busca
+        formulario = session.query(Formulario).filter(Formulario.id == formulario_id).first()
 
-    #     if not analista:
-    #         # se o produto não foi encontrado
-    #         error_msg = "Analista não encontrado na base"
-    #         logger.warning(f"Erro ao buscar o Analista '{analista_id}', {error_msg}")
-    #         return {"mesage": error_msg}, 404
-    #     else:
-    #         logger.info("Analista econtrado: %s" % analista)
-    #         # retorna a representação de produto
-    #         return apresenta_analista(analista), 200
+        if not formulario:
+            # se o produto não foi encontrado
+            error_msg = "Formulario não encontrado na base"
+            logger.warning(f"Erro ao buscar o Formulario '{formulario_id}', {error_msg}")
+            return {"mesage": error_msg}, 404
+        else:
+            logger.info("Formulario econtrado: %s" % formulario)
+            # retorna a representação de produto
+            return apresenta_formulario(formulario), 200
 
 
-    # @app.post('/analista', tags=[analista_tag],
-    #         responses={"200": AnalistaViewSchema, "409": ErrorSchema, "400": ErrorSchema})
-    # def add_analista(form: AnalistaSchema):
-    #     """ Adiciona um novo projeto a base de dados.
+    @app.post('/formulario', tags=[formulario_tag],
+            responses={"200": FormularioViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+    def add_formulario(form: FormularioSchema):
+        """ Adiciona um novo projeto a base de dados.
 
-    #     Retorna para uma representação dos projetos e atividades relacionadas.
-    #     """
-    #     analista = Analista(
-    #         nome=form.nome,
-    #         usuario=form.usuario,
-    #         email=form.email
-    #         )
-    #     logger.debug(f"Adicionando o analista '{analista.nome} na base de dados")
-    #     try:
-    #         # criando conexão com a base de dados
-    #         session = Session()
-    #         # adicionando projeto
-    #         session.add(analista)
-    #         # efetivando o comando de add novo item na tabela
-    #         session.commit()
-    #         logger.debug(f"{analista.nome} adicionado com sucesso.")
-    #         return apresenta_analista(analista), 200
+        Retorna para uma representação dos projetos e atividades relacionadas.
+        """
+        formulario = Formulario(
+            nome=form.nome,
+            usuario=form.usuario,
+            email=form.email
+            )
+        logger.debug(f"Adicionando o formulario '{formulario.nome} na base de dados")
+        try:
+            # criando conexão com a base de dados
+            session = Session()
+            # adicionando projeto
+            session.add(formulario)
+            # efetivando o comando de add novo item na tabela
+            session.commit()
+            logger.debug(f"{formulario.nome} adicionado com sucesso.")
+            return apresenta_formulario(formulario), 200
         
-    #     except Exception as e:
-    #         # tratamento de erros
-    #         error_msg = "Não foi possível adicionar o analista"
-    #         logger.warning(f"Erro ao adicionar o analista '{analista.nome}', {error_msg}")
-    #         return {"message": error_msg}, 400
+        except Exception as e:
+            # tratamento de erros
+            error_msg = "Não foi possível adicionar o formulario"
+            logger.warning(f"Erro ao adicionar o formulario '{formulario.nome}', {error_msg}")
+            return {"message": error_msg}, 400
 
 
-    # @app.put('/analista', tags=[analista_tag],
-    #             responses={"200": AnalistaViewSchema, "404": ErrorSchema})
-    # def put_analista(query: AnalistaBuscaSchema, form: AnalistaSchema):
-    #     """Edita um Carro a partir do id do carro informado
+    @app.put('/formulario', tags=[formulario_tag],
+                responses={"200": FormularioViewSchema, "404": ErrorSchema})
+    def put_formulario(query: FormularioBuscaSchema, form: FormularioSchema):
+        """Edita um Carro a partir do id do carro informado
 
-    #     Retorna uma mensagem de confirmação da remoção.
-    #     """
-    #     analista_id = query.id
-    #     logger.debug(f"Coletando dados sobre o Analista #{analista_id}")
-    #     # criando conexão com a base
-    #     session = Session()
-    #     # fazendo a busca
-    #     analista = session.query(Analista).filter(Analista.id == analista_id).first()
+        Retorna uma mensagem de confirmação da remoção.
+        """
+        formulario_id = query.id
+        logger.debug(f"Coletando dados sobre o Formulario #{formulario_id}")
+        # criando conexão com a base
+        session = Session()
+        # fazendo a busca
+        formulario = session.query(Formulario).filter(Formulario.id == formulario_id).first()
 
-    #     if not analista:
-    #         # se o carro não foi encontrado
-    #         error_msg = "Analista não encontrado na base"
-    #         logger.warning(f"Erro ao editar o Analista #'{analista_id}', {error_msg}")
-    #         return {"mesage": error_msg}, 404
-    #     else:
-    #         # edita o carro e retorna a representação
-    #         logger.info("Alterando informações do Analista: %s" % analista)
-    #         analista.nome=form.nome
-    #         analista.usuario=form.usuario
-    #         analista.email=form.email
-    #         session.commit()
-    #         return apresenta_analista(analista), 200
+        if not formulario:
+            # se o carro não foi encontrado
+            error_msg = "Formulario não encontrado na base"
+            logger.warning(f"Erro ao editar o Formulario #'{formulario_id}', {error_msg}")
+            return {"mesage": error_msg}, 404
+        else:
+            # edita o carro e retorna a representação
+            logger.info("Alterando informações do Formulario: %s" % formulario)
+            formulario.nome=form.nome
+            formulario.usuario=form.usuario
+            formulario.email=form.email
+            session.commit()
+            return apresenta_formulario(formulario), 200
 
 
-    # @app.delete('/analista', tags=[analista_tag],
-    #             responses={"200": AnalistaDelSchema, "404": ErrorSchema})
-    # def del_analista(query: AnalistaBuscaSchema):
-    #     """Deleta um Projeto a partir do nome do projeto informado
+    @app.delete('/formulario', tags=[formulario_tag],
+                responses={"200": FormularioDelSchema, "404": ErrorSchema})
+    def del_formulario(query: FormularioBuscaSchema):
+        """Deleta um Projeto a partir do nome do projeto informado
 
-    #     Retorna uma mensagem de confirmação da remoção.
-    #     """
-    #     analista_id = query.id
-    #     logger.debug(f"Deletando dados sobre analista #{analista_id}")
-    #     # criando conexão com a base
-    #     session = Session()
-    #     # fazendo a remoção
-    #     count = session.query(Analista).filter(Analista.id == analista_id).delete()
-    #     session.commit()
+        Retorna uma mensagem de confirmação da remoção.
+        """
+        formulario_id = query.id
+        logger.debug(f"Deletando dados sobre formulario #{formulario_id}")
+        # criando conexão com a base
+        session = Session()
+        # fazendo a remoção
+        count = session.query(Formulario).filter(Formulario.id == formulario_id).delete()
+        session.commit()
 
-    #     if count:
-    #         # retorna a representação da mensagem de confirmação
-    #         logger.debug(f"Deletado o Analista #{analista_id}")
-    #         return {"mesage": "Analista removido", "id": analista_id}
-    #     else:
-    #         # se o projeto não foi encontrado
-    #         error_msg = "Analista não encontrado na base"
-    #         logger.warning(f"Erro ao deletar o Analista #'{analista_id}', {error_msg}")
-    #         return {"mesage": error_msg}, 404
+        if count:
+            # retorna a representação da mensagem de confirmação
+            logger.debug(f"Deletado o Formulario #{formulario_id}")
+            return {"mesage": "Formulario removido", "id": formulario_id}
+        else:
+            # se o projeto não foi encontrado
+            error_msg = "Formulario não encontrado na base"
+            logger.warning(f"Erro ao deletar o Formulario #'{formulario_id}', {error_msg}")
+            return {"mesage": error_msg}, 404
