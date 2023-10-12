@@ -7,12 +7,18 @@ class CampoSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    campo: str = "Nome do Campo" 
+    tipo: str = "String"
+    descricao: str = "Descrição do Campo"
 
 
 class CampoViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    campo: str = "Nome do Campo" 
+    tipo: str = "String"
+    descricao: str = "Descrição do Campo"
 
 
 class ListagemCamposSchema(BaseModel):
@@ -44,7 +50,10 @@ def apresenta_campos(campos: List[Campo]):
     for campo in campos:
         result.append(
             {
-                "id": campo.id
+                "id": campo.id,
+                "campo": campo.campo,
+                "tipo": campo.tipo,
+                "descricao": campo.descricao
             }
         )
     return {"campos": result}
@@ -55,5 +64,8 @@ def apresenta_campo(campo: Campo):
         ProjetoViewSchema.
     """
     return {
-        "id": campo.id
+        "id": campo.id,
+        "campo": campo.campo,
+        "tipo": campo.tipo,
+        "descricao": campo.descricao
     }

@@ -8,32 +8,20 @@ class AnalistaSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
-    nome: str = "Pedro Costa"
-    usuario: str = "pcosta"
-    email: str = "pedro.costa@tck.com"
+    nome: str = "Nome"
+    sobrenome: str = "de Sobrenome"
+    usuario: str = "snome"
+    email: str = "nome.sobrenome@tck.com"
 
 
 class AnalistaViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
-    nome: str = "Pedro Costa"
-    usuario: str = "pcosta"
-    email: str = "pedro.costa@tck.com"
-
-
-class AnalistaBuscaPorNomeSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca. Que será
-        feita apenas com base no nome do produto.
-    """
-    nome: str = "Pedro Costa"
-
-
-class AnalistaBuscaPorIDSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca. Que será
-        feita apenas com base no ID do produto.
-    """
-    id: int = 1
+    nome: str = "Nome"
+    sobrenome: str = "de Sobrenome"
+    usuario: str = "snome"
+    email: str = "nome.sobrenome@tck.com"
 
 
 class ListagemAnalistasSchema(BaseModel):
@@ -67,6 +55,7 @@ def apresenta_analistas(analistas: List[Analista]):
             {
                 "id": analista.id,
                 "nome": analista.nome,
+                "sobrenome": analista.sobrenome,
                 "usuario": analista.usuario,
                 "email": analista.email
             }
@@ -81,6 +70,7 @@ def apresenta_analista(analista: Analista):
     return {
         "id": analista.id,
         "nome": analista.nome,
+        "sobrenomne": analista.sobrenome,
         "usuario": analista.usuario,
         "email": analista.email
     }

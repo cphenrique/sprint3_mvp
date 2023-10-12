@@ -8,7 +8,7 @@ class AtividadeSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
-    nome: str = "Emissão de Nota Fiscal"
+    atividade: str = "Emissão de Nota Fiscal"
     descricao: str = "Emitir uma Nota Fiscal"
 
 
@@ -16,22 +16,8 @@ class AtividadeViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
-    nome: str = "Emissão de Nota Fiscal"
+    atividade: str = "Emissão de Nota Fiscal"
     descricao: str = "Emitir uma Nota Fiscal"
-
-
-class AtividadeBuscaPorNomeSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca. Que será
-        feita apenas com base no nome do produto.
-    """
-    nome: str = "Emissão de Nota Fiscal"
-
-
-class AtividadeBuscaPorIDSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca. Que será
-        feita apenas com base no ID do produto.
-    """
-    id: int = 1
 
 
 class ListagemAtividadesSchema(BaseModel):
@@ -64,7 +50,7 @@ def apresenta_atividades(atividades: List[Atividade]):
         result.append(
             {
                 "id": atividade.id,
-                "nome": atividade.nome,
+                "atividade": atividade.atividade,
                 "descricao": atividade.descricao
             }
         )
@@ -77,6 +63,6 @@ def apresenta_atividade(atividade: Atividade):
     """
     return {
         "id": atividade.id,
-        "nome": atividade.nome,
+        "atividade": atividade.atividade,
         "descricao": atividade.descricao
     }

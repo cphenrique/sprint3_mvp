@@ -9,14 +9,14 @@ class Processo(Base):
     __tablename__ = 'processo'
 
     id = Column("processo_id", Integer, primary_key=True)
-    nome = Column(String(128), unique=True)
+    processo = Column(String(128), unique=True)
     descricao = Column(String(1024))
 
     #analistas = relationship('Analista', secondary=analista_processo, backref='processos')
 
     atividades = relationship('Atividade', backref='processo')
 
-    def __init__(self, nome:str, descricao:str):
+    def __init__(self, processo:str, descricao:str):
         """
 
         Cria um analista de projeto
@@ -24,5 +24,5 @@ class Processo(Base):
         Arguments:
             gerente: nome do gerente do projeto.
         """
-        self.nome = nome
+        self.processo = processo
         self.descricao = descricao

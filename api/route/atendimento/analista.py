@@ -35,7 +35,7 @@ def configure_analista_routes(app: Flask):
 
     @app.get('/analista', tags=[analista_tag],
          responses={"200": AnalistaViewSchema, "404": ErrorSchema})
-    def get_analista(query: AnalistaBuscaPorIDSchema):
+    def get_analista(query: AnalistaBuscaSchema):
         """Faz a busca por um Produto a partir do id do produto
 
         Retorna uma representação dos produtos e comentários associados.

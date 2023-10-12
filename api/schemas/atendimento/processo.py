@@ -8,7 +8,7 @@ class ProcessoSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
-    nome: str = "Nota Fiscal"
+    processo: str = "Nota Fiscal"
     descricao: str = "Atividades de emissão, registro e contabilização de Notas Fiscais"
 
 
@@ -16,22 +16,8 @@ class ProcessoViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
-    nome: str = "Nota Fiscal"
+    processo: str = "Nota Fiscal"
     descricao: str = "Atividades de emissão, registro e contabilização de Notas Fiscais"
-
-
-class ProcessoBuscaPorNomeSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca. Que será
-        feita apenas com base no nome do produto.
-    """
-    nome: str = "Nota Fiscal"
-
-
-class ProcessoBuscaPorIDSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca. Que será
-        feita apenas com base no ID do produto.
-    """
-    id: int = 1
 
 
 class ListagemProcessosSchema(BaseModel):
@@ -64,7 +50,7 @@ def apresenta_processos(processos: List[Processo]):
         result.append(
             {
                 "id": processo.id,
-                "nome": processo.nome,
+                "processo": processo.processo,
                 "descricao": processo.descricao
             }
         )
@@ -77,6 +63,6 @@ def apresenta_processo(processo: Processo):
     """
     return {
         "id": processo.id,
-        "nome": processo.nome,
+        "processo": processo.processo,
         "descricao": processo.descricao
     }

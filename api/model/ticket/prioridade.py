@@ -7,7 +7,7 @@ class Prioridade(Base):
     __tablename__ = 'prioridade'
 
     id = Column("prioridade_id", Integer, primary_key=True)
-    prioridade = Column(String, unique=True, nullable=False)
+    prioridade = Column(String(128), unique=True, nullable=False)
 
     def __init__(self, prioridade:str):
         """

@@ -35,7 +35,7 @@ def configure_atividade_routes(app: Flask):
 
     @app.get('/atividade', tags=[atividade_tag],
             responses={"200": AtividadeViewSchema, "404": ErrorSchema})
-    def get_atividade(query: AtividadeBuscaPorIDSchema):
+    def get_atividade(query: AtividadeBuscaSchema):
         """Faz a busca por um Produto a partir do id do produto
 
         Retorna uma representação dos produtos e comentários associados.

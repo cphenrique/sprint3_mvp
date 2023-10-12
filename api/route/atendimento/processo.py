@@ -35,7 +35,7 @@ def configure_processo_routes(app: Flask):
 
     @app.get('/processo', tags=[processo_tag],
             responses={"200": ProcessoViewSchema, "404": ErrorSchema})
-    def get_processo(query: ProcessoBuscaPorIDSchema):
+    def get_processo(query: ProcessoBuscaSchema):
         """Faz a busca por um Produto a partir do id do produto
 
         Retorna uma representação dos produtos e comentários associados.
