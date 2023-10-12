@@ -9,7 +9,7 @@ class AnalistaSchema(BaseModel):
     """
     id: int = 1
     nome: str = "Nome"
-    sobrenome: str = "de Sobrenome"
+    sobrenome: str = "Sobrenome"
     usuario: str = "snome"
     email: str = "nome.sobrenome@tck.com"
 
@@ -19,7 +19,7 @@ class AnalistaViewSchema(BaseModel):
     """
     id: int = 1
     nome: str = "Nome"
-    sobrenome: str = "de Sobrenome"
+    sobrenome: str = "Sobrenome"
     usuario: str = "snome"
     email: str = "nome.sobrenome@tck.com"
 

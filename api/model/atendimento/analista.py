@@ -9,10 +9,10 @@ class Analista(Base):
     __tablename__ = 'analista'
 
     id = Column("analista_id", Integer, primary_key=True)
-    nome = Column(String(128))
-    sobrenome = Column(String(128))
-    usuario = Column(String(128), unique=True)
-    email = Column(String(128), unique=True)
+    nome = Column(String(128), nullable=False)
+    sobrenome = Column(String(128), nullable=False)
+    usuario = Column(String(128), unique=True, nullable=False)
+    email = Column(String(128), unique=True, nullable=False)
 
     area_id = Column(Integer, ForeignKey('area.area_id'), nullable=False)
     

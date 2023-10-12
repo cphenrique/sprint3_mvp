@@ -67,10 +67,11 @@ def configure_analista_routes(app: Flask):
         """
         analista = Analista(
             nome=form.nome,
+            sobrenome=form.sobrenome,
             usuario=form.usuario,
             email=form.email
             )
-        logger.debug(f"Adicionando o analista '{analista.nome} na base de dados")
+        logger.debug(f"Adicionando o analista '{analista.nome}' na base de dados")
         try:
             # criando conexão com a base de dados
             session = Session()
@@ -111,6 +112,7 @@ def configure_analista_routes(app: Flask):
             # edita o carro e retorna a representação
             logger.info("Alterando informações do Analista: %s" % analista)
             analista.nome=form.nome
+            analista.sobrenome=form.sobrenome,
             analista.usuario=form.usuario
             analista.email=form.email
             session.commit()
