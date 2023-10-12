@@ -8,6 +8,7 @@ class UnidadeSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    empresa_id: int = 1
     nome: str = "Nome da Unidade"
     descricao: str = "Breve descrição da unidade."
     logo: str = "logotipo da unidade"
@@ -19,6 +20,7 @@ class UnidadeViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    empresa_id: int = 1
     nome: str = "Nome da Unidade"
     descricao: str = "Breve descrição da unidade."
     logo: str = "logotipo da unidade"
@@ -56,6 +58,7 @@ def apresenta_unidades(unidades: List[Unidade]):
         result.append(
             {
                 "id": unidade.id,
+                "empresa_id": unidade.empresa_id,
                 "nome": unidade.nome,
                 "descricao": unidade.descricao,
                 "logo": unidade.logo,
@@ -72,6 +75,7 @@ def apresenta_unidade(unidade: Unidade):
     """
     return {
         "id": unidade.id,
+        "empresa_id": unidade.empresa_id,
         "nome": unidade.nome,
         "descricao": unidade.descricao,
         "logo": unidade.logo,

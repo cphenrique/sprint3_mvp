@@ -18,7 +18,7 @@ class Analista(Base):
     
     processos = relationship('Processo', secondary=analista_processo, backref='analistas')
 
-    def __init__(self, nome:str, sobrenome:str, usuario:str, email:str):
+    def __init__(self, area_id:int, nome:str, sobrenome:str, usuario:str, email:str):
         """
 
         Cria um analista de projeto
@@ -26,6 +26,7 @@ class Analista(Base):
         Arguments:
             gerente: nome do gerente do projeto.
         """
+        self.area_id = area_id
         self.nome = nome
         self.sobrenome = sobrenome
         self.usuario = usuario

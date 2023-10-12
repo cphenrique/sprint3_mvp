@@ -14,7 +14,7 @@ class Area(Base):
 
     departamentos = relationship('Departamento', backref='area')
 
-    def __init__(self, nome:str, descricao:str):
+    def __init__(self, unidade_id:int, nome:str, descricao:str):
         """
 
         Cria um analista de projeto
@@ -22,5 +22,6 @@ class Area(Base):
         Arguments:
             gerente: nome do gerente do projeto.
         """
+        self.unidade_id = unidade_id
         self.nome = nome
         self.descricao = descricao

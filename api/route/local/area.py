@@ -66,6 +66,7 @@ def configure_area_routes(app: Flask):
         Retorna para uma representação dos projetos e atividades relacionadas.
         """
         area = Area(
+            unidade_id=form.unidade_id,
             nome=form.nome,
             descricao=form.descricao
             )
@@ -109,6 +110,7 @@ def configure_area_routes(app: Flask):
         else:
             # edita o carro e retorna a representação
             logger.info("Alterando informações da Área: %s" % area)
+            area.unidade_id=form.unidade_id
             area.nome=form.nome
             area.descricao=form.descricao
             session.commit()

@@ -7,8 +7,8 @@ class Formulario(Base):
     __tablename__ = 'formulario'
 
     id = Column("formulario_id", Integer, primary_key=True)
-    formulario = Column(String(128), nullable=False)
-    descricao = Column(String(1024))
+
+    atividade_id = Column(Integer, ForeignKey('atividade.atividade_id'), nullable=False)
     
     def __init__(self):
         """

@@ -66,6 +66,7 @@ def configure_unidade_routes(app: Flask):
         Retorna para uma representação dos projetos e atividades relacionadas.
         """
         unidade = Unidade(
+            empresa_id=form.empresa_id,
             nome=form.nome,
             descricao=form.descricao,
             logo=form.logo,
@@ -112,6 +113,7 @@ def configure_unidade_routes(app: Flask):
         else:
             # edita o carro e retorna a representação
             logger.info("Alterando informações do Unidade: %s" % unidade)
+            unidade.empresa_id=form.empresa_id
             unidade.nome=form.nome
             unidade.descricao=form.descricao
             unidade.logo=form.logo

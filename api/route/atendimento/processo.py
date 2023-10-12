@@ -66,10 +66,10 @@ def configure_processo_routes(app: Flask):
         Retorna para uma representação dos projetos e atividades relacionadas.
         """
         processo = Processo(
-            nome=form.nome,
+            processo=form.processo,
             descricao=form.descricao
             )
-        logger.debug(f"Adicionando o processo '{processo.nome} na base de dados")
+        logger.debug(f"Adicionando o processo '{processo.processo} na base de dados")
         try:
             # criando conexão com a base de dados
             session = Session()
@@ -77,13 +77,13 @@ def configure_processo_routes(app: Flask):
             session.add(processo)
             # efetivando o comando de add novo item na tabela
             session.commit()
-            logger.debug(f"{processo.nome} adicionado com sucesso.")
+            logger.debug(f"{processo.processo} adicionado com sucesso.")
             return apresenta_processo(processo), 200
         
         except Exception as e:
             # tratamento de erros
             error_msg = "Não foi possível adicionar o processo"
-            logger.warning(f"Erro ao adicionar o processo '{processo.nome}', {error_msg}")
+            logger.warning(f"Erro ao adicionar o processo '{processo.processo}', {error_msg}")
             return {"message": error_msg}, 400
 
 
@@ -109,9 +109,8 @@ def configure_processo_routes(app: Flask):
         else:
             # edita o carro e retorna a representação
             logger.info("Alterando informações do Processo: %s" % processo)
-            processo.nome=form.nome
-            processo.usuario=form.usuario
-            processo.email=form.email
+            processo.processo=form.processo
+            processo.descricao=form.descricao
             session.commit()
             return apresenta_processo(processo), 200
 

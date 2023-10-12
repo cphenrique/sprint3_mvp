@@ -8,6 +8,7 @@ class AreaSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    unidade_id: int = 1
     nome: str = "Nome da Area"
     descricao: str = "Breve descrição da area."
 
@@ -16,6 +17,7 @@ class AreaViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    unidade_id: int = 1
     nome: str = "Nome da Area"
     descricao: str = "Breve descrição da area."
 
@@ -50,6 +52,7 @@ def apresenta_areas(areas: List[Area]):
         result.append(
             {
                 "id": area.id,
+                "unidade_id": area.unidade_id,
                 "nome": area.nome,
                 "descricao": area.descricao
             }
@@ -63,6 +66,7 @@ def apresenta_area(area: Area):
     """
     return {
         "id": area.id,
+        "unidade_id": area.unidade_id,
         "nome": area.nome,
         "descricao": area.descricao
     }
