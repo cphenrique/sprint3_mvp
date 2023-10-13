@@ -1,19 +1,27 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    # Make a request to the external API
-    api_url = "http://192.168.0.16:5000/processos"  # Replace with the actual API URL
-    response = requests.get(api_url)
+    processos = []
+    formulario = []
+    formulario_id = request.args.get('formulario_id')
+    
+    api_url_processos = "http://192.168.0.16:5000/processos"
+    response_processos = requests.get(api_url_processos)
+    if response_processos.status_code == 200:
+        processos = response_processos.json()
 
-    if response.status_code == 200:
-        data = response.json()
-        return render_template('index.html', processos=data)
-    else:
-        return render_template('index.html') #"Failed to fetch data from the API"
+    if request.method == 'POST':
 
+        api_url_formulario = f"http://192.168.0.16:5000/formulario?id={formulario_id}"
+        response_formulario = requests.get(api_url_formulario)
+        if response_processos.status_code == 200:
+            formulario = response_formulario.json()
+    
+    return render_template('index.html', processos=processos, formulario=formulario)
+    
 if __name__ == '__main__':
     app.run(debug=True)

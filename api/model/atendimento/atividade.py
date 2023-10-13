@@ -1,4 +1,5 @@
 from sqlalchemy import Column, ForeignKey, String, Integer
+from sqlalchemy.orm import relationship
 
 from  model import Base
 
@@ -12,6 +13,8 @@ class Atividade(Base):
     super_atividade_id = Column(Integer, ForeignKey('atividade.atividade_id'))
 
     processo_id = Column(Integer, ForeignKey('processo.processo_id'), nullable=False)
+
+    formularios = relationship('Formulario', backref='atividade', lazy='dynamic')
 
     def __init__(self, processo_id:int, super_atividade_id:int, atividade:str, descricao:str):
         """

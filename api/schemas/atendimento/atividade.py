@@ -51,7 +51,8 @@ def apresenta_atividades(atividades: List[Atividade]):
             {
                 "id": atividade.id,
                 "atividade": atividade.atividade,
-                "descricao": atividade.descricao
+                "descricao": atividade.descricao,
+                "formularios": [f.id for f in atividade.formularios]
             }
         )
     return {"atividades": result}
@@ -64,5 +65,6 @@ def apresenta_atividade(atividade: Atividade):
     return {
         "id": atividade.id,
         "atividade": atividade.atividade,
-        "descricao": atividade.descricao
+        "descricao": atividade.descricao,
+        "formularios": [f.id for f in atividade.formularios]
     }

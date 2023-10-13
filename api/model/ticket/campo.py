@@ -11,6 +11,8 @@ class Campo(Base):
     tipo = Column(String(128), nullable=False)
     descricao = Column(String(1024))
 
+    formularios = relationship('Formulario', secondary='formulario_campo')
+
     def __init__(self):
         """
 

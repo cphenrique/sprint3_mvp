@@ -2,7 +2,7 @@ from flask import Flask
 from flask_openapi3 import Tag
 
 from model import Session
-from model import Formulario
+from model import Formulario, Campo, FormularioCampo
 
 from schemas import *
 
@@ -22,7 +22,8 @@ def configure_formulario_routes(app: Flask):
         # criando conexão com a base de dados
         session = Session()
         # realizando a busca
-        formularios = session.query(Formulario).all()
+        #formularios = session.query(Formulario).all()
+        formularios = session.query(Formulario).join(FormularioCampo).join(Campo).all()
 
         if not formularios:
             # se não há projetos cadastrados

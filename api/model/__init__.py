@@ -23,7 +23,7 @@ from model.ticket.ticket_estado import ticket_estado
 from model.ticket.prioridade import Prioridade
 from model.ticket.formulario import Formulario
 from model.ticket.campo import Campo
-from model.ticket.formulario_campo import formulario_campo
+from model.ticket.formulario_campo import FormularioCampo
 from model.ticket.valor import Valor
 
 # url de acesso ao banco

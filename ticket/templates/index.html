@@ -17,7 +17,9 @@
             <div id="flush-collapse-{{ processo.id }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushAtividades">
                 <div class="accordion-body">
                     {% for atividade in processo['atividades'] %}
-                    <p class="text-start">{{ atividade[1] }}</p>
+                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/#/?formulario_id=4">
+                      <p class="text-start">{{ atividade[1] }}</p>
+                    </a>
                     {% endfor %}
                 </div>
             </div>
@@ -26,6 +28,21 @@
         </div>
       </div>
       <div class="col-8">
+
+        {% if formulario %}
+
+            {% for campo in formulario['campos'] %}
+
+            <p>{{ campo[0] }}</p>
+            <p>{{ campo[1] }}</p>
+            <p>{{ campo[2] }}</p>
+
+            {% endfor %}
+
+        {% endif %}
+
+        <h1>{{ formulario.id }}</h1>
+
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">

@@ -1,36 +1,38 @@
 from pydantic import BaseModel
 from typing import List
-from model import Formulario
+from model import FormularioCampo
 
 
-class FormularioSchema(BaseModel):
+class FormularioCampoSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    formulario_id: int = 1
     campo_id: int = 1
 
 
-class FormularioViewSchema(BaseModel):
+class FormularioCampoViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
     id: int = 1
+    formulario_id: int = 1
     campo_id: int = 1
 
 
-class ListagemFormulariosSchema(BaseModel):
+class ListagemFormularioCamposSchema(BaseModel):
     """ Define como uma listagem de projetos será retornada.
     """
-    formularios:List[FormularioSchema]
+    formulario_campos:List[FormularioCampoSchema]
 
 
-class FormularioBuscaSchema(BaseModel):
+class FormularioCampoBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
         feita apenas com base no nome do projeto.
     """
     id: int = 1
 
 
-class FormularioDelSchema(BaseModel):
+class FormularioCampoDelSchema(BaseModel):
     """ Define como deve ser a estrutura do dado retornado após uma requisição
         de remoção.
     """
@@ -38,26 +40,26 @@ class FormularioDelSchema(BaseModel):
     id: int
 
 
-def apresenta_formularios(formularios: List[Formulario]):
+def apresenta_formulario_campos(formulario_campos: List[FormularioCampo]):
     """ Retorna uma representação dos projetos seguindo o schema definido em
         ProjetoViewSchema
     """
     result = []
-    for formulario in formularios:
+    for formulario_campo in formulario_campos:
         result.append(
             {
-                "id": formulario.id,
-                "campos": [[f.id, f.campo, f.tipo] for f in formulario.campos]
+                "id": formulario_campo.id
+                #"campos": [[f.id, f.campo, f.tipo] for f in formulario.campos]
             }
         )
-    return {"formularios": result}
+    return {"formulario_campos": result}
 
 
-def apresenta_formulario(formulario: Formulario):
+def apresenta_formulario_campo(formulario_campo: FormularioCampo):
     """ Retorna uma representação do projeto seguindo o schema definido em
         ProjetoViewSchema.
     """
     return {
-        "id": formulario.id,
-        "campos": [[f.id, f.campo, f.tipo] for f in formulario.campos]
+        "id": formulario_campo.id
+        #"campos": [[f.id, f.campo, f.tipo] for f in formulario.campos]
     }
