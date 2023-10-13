@@ -14,7 +14,7 @@ class Processo(Base):
 
     #analistas = relationship('Analista', secondary=analista_processo, backref='processos')
 
-    atividades = relationship('Atividade', backref='processo')
+    atividades = relationship('Atividade', backref='processo', lazy='dynamic')
 
     def __init__(self, processo:str, descricao:str):
         """

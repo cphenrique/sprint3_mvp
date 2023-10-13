@@ -51,7 +51,8 @@ def apresenta_processos(processos: List[Processo]):
             {
                 "id": processo.id,
                 "processo": processo.processo,
-                "descricao": processo.descricao
+                "descricao": processo.descricao,
+                "atividades": [[a.id, a.atividade] for a in processo.atividades]
             }
         )
     return {"processos": result}
@@ -64,5 +65,6 @@ def apresenta_processo(processo: Processo):
     return {
         "id": processo.id,
         "processo": processo.processo,
-        "descricao": processo.descricao
+        "descricao": processo.descricao,
+        "atividades": [a.atividade for a in processo.atividades]
     }
