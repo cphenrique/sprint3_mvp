@@ -1,12 +1,11 @@
-from sqlalchemy import Column, ForeignKey, String, Integer, DateTime
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, String, Integer
 
 from model import Base
 
 class Estado(Base):
     __tablename__ = 'estado'
 
-    id = Column("estado_id", Integer, primary_key=True)
+    id = Column("estado_id", Integer, primary_key=True, autoincrement=True)
     estado = Column(String(128), unique=True, nullable=False)
 
     def __init__(self, estado:str):

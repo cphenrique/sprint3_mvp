@@ -66,11 +66,9 @@ def configure_prioridade_routes(app: Flask):
         Retorna para uma representação dos projetos e atividades relacionadas.
         """
         prioridade = Prioridade(
-            nome=form.nome,
-            usuario=form.usuario,
-            email=form.email
+            prioridade=form.prioridade
             )
-        logger.debug(f"Adicionando o prioridade '{prioridade.nome} na base de dados")
+        logger.debug(f"Adicionando o prioridade '{prioridade.prioridade} na base de dados")
         try:
             # criando conexão com a base de dados
             session = Session()
@@ -78,7 +76,7 @@ def configure_prioridade_routes(app: Flask):
             session.add(prioridade)
             # efetivando o comando de add novo item na tabela
             session.commit()
-            logger.debug(f"{prioridade.nome} adicionado com sucesso.")
+            logger.debug(f"{prioridade.prioridade} adicionado com sucesso.")
             return apresenta_prioridade(prioridade), 200
         
         except Exception as e:
@@ -110,9 +108,7 @@ def configure_prioridade_routes(app: Flask):
         else:
             # edita o carro e retorna a representação
             logger.info("Alterando informações do Prioridade: %s" % prioridade)
-            prioridade.nome=form.nome
-            prioridade.usuario=form.usuario
-            prioridade.email=form.email
+            prioridade.prioridade=form.prioridade
             session.commit()
             return apresenta_prioridade(prioridade), 200
 

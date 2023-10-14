@@ -6,14 +6,12 @@ from model import Estado
 class EstadoSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
     estado: str = "Aberto"
 
 
 class EstadoViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
     estado: str = "Aberto"
 
 

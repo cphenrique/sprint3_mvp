@@ -33,8 +33,8 @@ configure_atividade_routes(app)
 
 # configura as rotas para o Ticket
 # configure_ticket_routes(app)
-# configure_estado_routes(app)
-# configure_prioridade_routes(app)
+configure_estado_routes(app)
+configure_prioridade_routes(app)
 # configure_formulario_routes(app)
 # configure_campo_routes(app)
 # configure_valor_routes(app)

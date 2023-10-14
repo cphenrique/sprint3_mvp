@@ -6,14 +6,12 @@ from model import Prioridade
 class PrioridadeSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
     prioridade: str = "Alta"
 
 
 class PrioridadeViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
     prioridade: str = "Alta"
 
 
