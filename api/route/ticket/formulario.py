@@ -22,6 +22,29 @@ def configure_formulario_routes(app: Flask):
         # criando conexão com a base de dados
         session = Session()
         # realizando a busca
+        formularios = session.query(Formulario).all()
+        #formularios = session.query(Formulario).join(FormularioCampo).join(Campo).all()
+
+        if not formularios:
+            # se não há projetos cadastrados
+            return {"formularios": []}, 200
+        else:
+            logger.debug(f"%d Formularios encontrados" % len(formularios))
+            # retorna a representação do projeto
+            return apresenta_formularios(formularios), 200
+        
+
+    @app.get('/formulario_campos', tags=[formulario_tag],
+            responses={"200": ListagemFormularioCamposSchema, "404": ErrorSchema})
+    def get_formulario_campos():
+        """ Faz a busca por todos os Projetos cadastrados na base de dados.
+
+        Retorna para uma representação dos projetos.
+        """
+        logger.debug(f"Coletando Formularios")
+        # criando conexão com a base de dados
+        session = Session()
+        # realizando a busca
         #formularios = session.query(Formulario).all()
         formularios = session.query(Formulario).join(FormularioCampo).join(Campo).all()
 
@@ -31,7 +54,9 @@ def configure_formulario_routes(app: Flask):
         else:
             logger.debug(f"%d Formularios encontrados" % len(formularios))
             # retorna a representação do projeto
-            return apresenta_formularios(formularios), 200
+            #print(formularios)
+            #return formularios
+            return apresenta_formulario_campos(formularios), 200
         
 
     @app.get('/formulario', tags=[formulario_tag],

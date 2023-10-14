@@ -13,4 +13,5 @@ from schemas.ticket.estado import *
 from schemas.ticket.prioridade import *
 from schemas.ticket.formulario import *
 from schemas.ticket.campo import *
+from schemas.ticket.formulario_campo import *
 from schemas.ticket.valor import *

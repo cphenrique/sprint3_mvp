@@ -13,6 +13,7 @@ from flask_cors import CORS
 
 info = Info(title="Tickets de CSC", version="1.0.0")
 app = OpenAPI(__name__, info=info)
+app.config['JSON_SORT_KEYS'] = False
 CORS(app)
 
 # definindo tags

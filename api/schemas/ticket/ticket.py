@@ -53,7 +53,8 @@ def apresenta_tickets(tickets: List[Ticket]):
                 "id": ticket.id,
                 "analista_id": ticket.analista_id,
                 "formulario_id": ticket.formulario_id,
-                "prioridade_id": ticket.prioridade_id
+                "prioridade_id": ticket.prioridade_id,
+                "formularios": ticket.formularios
             }
         )
     return {"tickets": result}

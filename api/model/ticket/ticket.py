@@ -12,6 +12,8 @@ class Ticket(Base):
     formulario_id = Column(Integer, ForeignKey('formulario.formulario_id'), nullable=False)
     prioridade_id = Column(Integer, ForeignKey('prioridade.prioridade_id'), nullable=False)
 
+    formularios = relationship('Formulario', backref='ticket')
+
 
     def __init__(self):
         """

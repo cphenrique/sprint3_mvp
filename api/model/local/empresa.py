@@ -7,9 +7,9 @@ class Empresa(Base):
     __tablename__ = 'empresa'
 
     id = Column("empresa_id", Integer, primary_key=True)
-    nome = Column(String(128), unique=True)
-    descricao = Column(String(1024), unique=True)
-    logo = Column(String(128), unique=True)
+    nome = Column(String(128), unique=True, nullable=False)
+    descricao = Column(String(1024))
+    logo = Column(String(128), nullable=False)
 
     unidades = relationship('Unidade', backref='empresa')
 

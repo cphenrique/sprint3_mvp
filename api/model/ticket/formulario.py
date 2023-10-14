@@ -11,6 +11,8 @@ class Formulario(Base):
     atividade_id = Column(Integer, ForeignKey('atividade.atividade_id'), nullable=False)
     
     campos = relationship('Campo', secondary='formulario_campo', backref='formulario')
+
+    formulario_campos = relationship('FormularioCampo', backref='formulario')
     
     def __init__(self):
         """

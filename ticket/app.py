@@ -18,10 +18,20 @@ def index():
 
         api_url_formulario = f"http://192.168.0.16:5000/formulario?id={formulario_id}"
         response_formulario = requests.get(api_url_formulario)
-        if response_processos.status_code == 200:
+        if response_formulario.status_code == 200:
             formulario = response_formulario.json()
     
     return render_template('index.html', processos=processos, formulario=formulario)
+
+
+@app.route('/formulario/<formulario_id>', methods=['GET'])
+def get_formulario(formulario_id):
+    api_url_formulario = f"http://192.168.0.16:5000/formulario?id={formulario_id}"
+    response_formulario = requests.get(api_url_formulario)
+    if response_formulario.status_code == 200:
+        formulario = response_formulario.json()
+    
+    return render_template('formulario.html', formulario=formulario)
     
 if __name__ == '__main__':
     app.run(debug=True)

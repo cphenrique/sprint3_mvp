@@ -47,6 +47,7 @@ def apresenta_formularios(formularios: List[Formulario]):
         result.append(
             {
                 "id": formulario.id,
+                "formulario_campos": [f.indice for f in formulario.formulario_campos],
                 "campos": [[f.id, f.campo, f.tipo] for f in formulario.campos]
             }
         )
@@ -59,5 +60,6 @@ def apresenta_formulario(formulario: Formulario):
     """
     return {
         "id": formulario.id,
+        "formulario_campos": [f.indice for f in formulario.formulario_campos],
         "campos": [[f.id, f.campo, f.tipo] for f in formulario.campos]
     }
