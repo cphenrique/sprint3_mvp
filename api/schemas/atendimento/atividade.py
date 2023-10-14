@@ -7,7 +7,7 @@ from model import Atividade
 class AtividadeSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
+    processo_id: int = 1
     atividade: str = "Emissão de Nota Fiscal"
     descricao: str = "Emitir uma Nota Fiscal"
 
@@ -15,7 +15,7 @@ class AtividadeSchema(BaseModel):
 class AtividadeViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
+    processo_id: int = 1
     atividade: str = "Emissão de Nota Fiscal"
     descricao: str = "Emitir uma Nota Fiscal"
 
@@ -50,9 +50,9 @@ def apresenta_atividades(atividades: List[Atividade]):
         result.append(
             {
                 "id": atividade.id,
+                "processo_id": atividade.processo_id,
                 "atividade": atividade.atividade,
-                "descricao": atividade.descricao,
-                "formularios": [f.id for f in atividade.formularios]
+                "descricao": atividade.descricao
             }
         )
     return {"atividades": result}
@@ -64,7 +64,7 @@ def apresenta_atividade(atividade: Atividade):
     """
     return {
         "id": atividade.id,
+        "processo_id": atividade.processo_id,
         "atividade": atividade.atividade,
-        "descricao": atividade.descricao,
-        "formularios": [f.id for f in atividade.formularios]
+        "descricao": atividade.descricao
     }

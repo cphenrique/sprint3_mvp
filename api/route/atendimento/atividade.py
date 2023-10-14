@@ -66,10 +66,11 @@ def configure_atividade_routes(app: Flask):
         Retorna para uma representação dos projetos e atividades relacionadas.
         """
         atividade = Atividade(
-            nome=form.nome,
+            processo_id=form.processo_id,
+            atividade=form.atividade,
             descricao=form.descricao
             )
-        logger.debug(f"Adicionando o atividade '{atividade.nome} na base de dados")
+        logger.debug(f"Adicionando o atividade '{atividade.atividade} na base de dados")
         try:
             # criando conexão com a base de dados
             session = Session()
@@ -77,13 +78,13 @@ def configure_atividade_routes(app: Flask):
             session.add(atividade)
             # efetivando o comando de add novo item na tabela
             session.commit()
-            logger.debug(f"{atividade.nome} adicionado com sucesso.")
+            logger.debug(f"{atividade.atividade} adicionado com sucesso.")
             return apresenta_atividade(atividade), 200
         
         except Exception as e:
             # tratamento de erros
             error_msg = "Não foi possível adicionar o atividade"
-            logger.warning(f"Erro ao adicionar o atividade '{atividade.nome}', {error_msg}")
+            logger.warning(f"Erro ao adicionar o atividade '{atividade.atividade}', {error_msg}")
             return {"message": error_msg}, 400
 
 
@@ -109,7 +110,8 @@ def configure_atividade_routes(app: Flask):
         else:
             # edita o carro e retorna a representação
             logger.info("Alterando informações do Atividade: %s" % atividade)
-            atividade.nome=form.nome
+            atividade.processo_id=form.processo_id
+            atividade.atividade=form.atividade
             atividade.descricao=form.descricao
             session.commit()
             return apresenta_atividade(atividade), 200

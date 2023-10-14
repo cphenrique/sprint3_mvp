@@ -7,7 +7,6 @@ from model import Processo
 class ProcessoSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
     processo: str = "Nota Fiscal"
     descricao: str = "Atividades de emissão, registro e contabilização de Notas Fiscais"
 
@@ -15,7 +14,6 @@ class ProcessoSchema(BaseModel):
 class ProcessoViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
     processo: str = "Nota Fiscal"
     descricao: str = "Atividades de emissão, registro e contabilização de Notas Fiscais"
 

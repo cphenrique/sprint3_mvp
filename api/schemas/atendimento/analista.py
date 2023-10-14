@@ -7,8 +7,6 @@ from model import Analista
 class AnalistaSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
-    area_id: int = 1
     nome: str = "Nome"
     sobrenome: str = "Sobrenome"
     usuario: str = "snome"
@@ -18,8 +16,6 @@ class AnalistaSchema(BaseModel):
 class AnalistaViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
-    id: int = 1
-    area_id: int = 1
     nome: str = "Nome"
     sobrenome: str = "Sobrenome"
     usuario: str = "snome"
@@ -56,7 +52,6 @@ def apresenta_analistas(analistas: List[Analista]):
         result.append(
             {
                 "id": analista.id,
-                "area_id": analista.area_id,
                 "nome": analista.nome,
                 "sobrenome": analista.sobrenome,
                 "usuario": analista.usuario,
@@ -72,7 +67,6 @@ def apresenta_analista(analista: Analista):
     """
     return {
         "id": analista.id,
-        "area_id": analista.area_id,
         "nome": analista.nome,
         "sobrenomne": analista.sobrenome,
         "usuario": analista.usuario,

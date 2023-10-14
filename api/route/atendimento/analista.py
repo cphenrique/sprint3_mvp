@@ -66,7 +66,6 @@ def configure_analista_routes(app: Flask):
         Retorna para uma representação dos projetos e atividades relacionadas.
         """
         analista = Analista(
-            area_id=form.area_id,
             nome=form.nome,
             sobrenome=form.sobrenome,
             usuario=form.usuario,
@@ -112,7 +111,6 @@ def configure_analista_routes(app: Flask):
         else:
             # edita o carro e retorna a representação
             logger.info("Alterando informações do Analista: %s" % analista)
-            analista.area_id=form.area_id
             analista.nome=form.nome
             analista.sobrenome=form.sobrenome,
             analista.usuario=form.usuario

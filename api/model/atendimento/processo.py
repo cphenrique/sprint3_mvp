@@ -3,12 +3,10 @@ from sqlalchemy.orm import relationship
 
 from model import Base
 
-from model.atendimento.analista_processo import analista_processo
-
 class Processo(Base):
     __tablename__ = 'processo'
 
-    id = Column("processo_id", Integer, primary_key=True)
+    id = Column("processo_id", Integer, primary_key=True, autoincrement=True)
     processo = Column(String(128), unique=True)
     descricao = Column(String(1024))
 

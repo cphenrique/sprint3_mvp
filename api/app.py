@@ -31,15 +31,10 @@ configure_analista_routes(app)
 configure_processo_routes(app)
 configure_atividade_routes(app)
 
-# configura as rotas para o Local
-configure_empresa_routes(app)
-configure_unidade_routes(app)
-configure_area_routes(app)
-
 # configura as rotas para o Ticket
-configure_ticket_routes(app)
-configure_estado_routes(app)
-configure_prioridade_routes(app)
-configure_formulario_routes(app)
-configure_campo_routes(app)
-configure_valor_routes(app)
+# configure_ticket_routes(app)
+# configure_estado_routes(app)
+# configure_prioridade_routes(app)
+# configure_formulario_routes(app)
+# configure_campo_routes(app)
+# configure_valor_routes(app)

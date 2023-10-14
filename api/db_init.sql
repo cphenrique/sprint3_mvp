@@ -1,15 +1,3 @@
-INSERT INTO public.empresa(
-	empresa_id, nome, descricao, logo)
-	VALUES (1, 'Empresa', 'Descrição da Empresa', 'Logo');
-
-INSERT INTO public.unidade(
-	unidade_id, nome, descricao, logo, cor, acento, empresa_id)
-	VALUES (1, 'Unidade', 'Descrição da Unidade', 'Logo', 'Cinza', 'Azul', 1);
-
-INSERT INTO public.area(
-	area_id, nome, descricao, unidade_id)
-	VALUES (1, 'Área', 'Descrição da Área', 1);
-
 INSERT INTO public.processo(
 	processo_id, processo, descricao)
 	VALUES (1, 'Nota Fiscal', 'Emissão, registro e contabilização de Notas Fiscais');
@@ -47,68 +35,24 @@ INSERT INTO public.atividade(
 	VALUES (6, 'Criação de Folha de Serviço', 'Criar uma Folha de Serviço para registro', 3);
 
 INSERT INTO public.analista(
-	analista_id, nome, sobrenome, usuario, email, area_id)
-	VALUES (1, 'Analista', '01', 'analista1', 'analista1@tckt.com', 1);
+	analista_id, nome, sobrenome, usuario, email)
+	VALUES (1, 'Analista', '01', 'analista1', 'analista1@tckt.com');
 
 INSERT INTO public.analista(
-	analista_id, nome, sobrenome, usuario, email, area_id)
-	VALUES (2, 'Analista', '02', 'analista2', 'analista2@tckt.com', 1);
+	analista_id, nome, sobrenome, usuario, email)
+	VALUES (2, 'Analista', '02', 'analista2', 'analista2@tckt.com');
 
 INSERT INTO public.analista(
-	analista_id, nome, sobrenome, usuario, email, area_id)
-	VALUES (3, 'Analista', '03', 'analista3', 'analista3@tckt.com', 1);
+	analista_id, nome, sobrenome, usuario, email)
+	VALUES (3, 'Analista', '03', 'analista3', 'analista3@tckt.com');
 
 INSERT INTO public.analista(
-	analista_id, nome, sobrenome, usuario, email, area_id)
-	VALUES (4, 'Analista', '04', 'analista4', 'analista4@tckt.com', 1);
+	analista_id, nome, sobrenome, usuario, email)
+	VALUES (4, 'Analista', '04', 'analista4', 'analista4@tckt.com');
 
 INSERT INTO public.analista(
-	analista_id, nome, sobrenome, usuario, email, area_id)
-	VALUES (5, 'Analista', '05', 'analista5', 'analista5@tckt.com', 1);
-
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (3, 1);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (4, 1);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (5, 1);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (1, 2);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (2, 2);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (3, 2);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (4, 2);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (1, 3);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (2, 3);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (3, 3);
-	
-INSERT INTO public.analista_processo(
-	analista_id, processo_id)
-	VALUES (4, 3);
+	analista_id, nome, sobrenome, usuario, email)
+	VALUES (5, 'Analista', '05', 'analista5', 'analista5@tckt.com');
 
 INSERT INTO public.estado(
 	estado_id, estado)
