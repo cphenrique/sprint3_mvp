@@ -19,7 +19,7 @@
     
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
               <button type="button" class="btn btn-outline-secondary btn-lg">
                 <span class="material-symbols-outlined">
                   linked_services
@@ -37,7 +37,7 @@
                     Atendimento
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="?tabela=analistas">Analista</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('get_analistas')}}">Analista</a></li>
                     <li><a class="dropdown-item" href="?tabela=processos">Processo</a></li>
                     <li><a class="dropdown-item" href="?tabela=atividades">Atividade</a></li>
                   </ul>

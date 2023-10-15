@@ -9,14 +9,14 @@ def index():
     formulario = []
     formulario_id = request.args.get('formulario_id')
     
-    api_url_processos = "http://192.168.0.16:5000/processos"
+    api_url_processos = "http://localhost:5000/processos"
     response_processos = requests.get(api_url_processos)
     if response_processos.status_code == 200:
         processos = response_processos.json()
 
     if request.method == 'POST':
 
-        api_url_formulario = f"http://192.168.0.16:5000/formulario?id={formulario_id}"
+        api_url_formulario = f"http://localhost:5000/formulario?id={formulario_id}"
         response_formulario = requests.get(api_url_formulario)
         if response_formulario.status_code == 200:
             formulario = response_formulario.json()
@@ -26,7 +26,7 @@ def index():
 
 @app.route('/formulario/<formulario_id>', methods=['GET'])
 def get_formulario(formulario_id):
-    api_url_formulario = f"http://192.168.0.16:5000/formulario?id={formulario_id}"
+    api_url_formulario = f"http://localhost:5000/formulario?id={formulario_id}"
     response_formulario = requests.get(api_url_formulario)
     if response_formulario.status_code == 200:
         formulario = response_formulario.json()

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_openapi3 import Tag
 
 from model import Session
@@ -8,10 +8,12 @@ from schemas import *
 
 from logger import logger
 
+
+
 analista_tag = Tag(name='Analista', description='Adição, visualização e remoção de Analistas')
 
 def configure_analista_routes(app: Flask):
-    @app.get('/analistas', tags=[analista_tag],
+    @app.get('/get_analistas', tags=[analista_tag],
             responses={"200": ListagemAnalistasSchema, "404": ErrorSchema})
     def get_analistas():
         """ Faz a busca por todos os Projetos cadastrados na base de dados.
@@ -33,7 +35,7 @@ def configure_analista_routes(app: Flask):
             return apresenta_analistas(analistas), 200
         
 
-    @app.get('/analista', tags=[analista_tag],
+    @app.get('/get_analista', tags=[analista_tag],
          responses={"200": AnalistaViewSchema, "404": ErrorSchema})
     def get_analista(query: AnalistaBuscaSchema):
         """Faz a busca por um Produto a partir do id do produto
@@ -58,7 +60,7 @@ def configure_analista_routes(app: Flask):
             return apresenta_analista(analista), 200
 
 
-    @app.post('/analista', tags=[analista_tag],
+    @app.post('/add_analista', tags=[analista_tag],
             responses={"200": AnalistaViewSchema, "409": ErrorSchema, "400": ErrorSchema})
     def add_analista(form: AnalistaSchema):
         """ Adiciona um novo projeto a base de dados.
@@ -89,7 +91,7 @@ def configure_analista_routes(app: Flask):
             return {"message": error_msg}, 400
 
 
-    @app.put('/analista', tags=[analista_tag],
+    @app.put('/put_analista', tags=[analista_tag],
                 responses={"200": AnalistaViewSchema, "404": ErrorSchema})
     def put_analista(query: AnalistaBuscaSchema, form: AnalistaSchema):
         """Edita um Carro a partir do id do carro informado
@@ -119,7 +121,7 @@ def configure_analista_routes(app: Flask):
             return apresenta_analista(analista), 200
 
 
-    @app.delete('/analista', tags=[analista_tag],
+    @app.delete('/del_analista', tags=[analista_tag],
                 responses={"200": AnalistaDelSchema, "404": ErrorSchema})
     def del_analista(query: AnalistaBuscaSchema):
         """Deleta um Projeto a partir do nome do projeto informado

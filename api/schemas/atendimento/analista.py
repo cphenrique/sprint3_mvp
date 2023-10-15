@@ -68,7 +68,7 @@ def apresenta_analista(analista: Analista):
     return {
         "id": analista.id,
         "nome": analista.nome,
-        "sobrenomne": analista.sobrenome,
+        "sobrenome": analista.sobrenome,
         "usuario": analista.usuario,
         "email": analista.email
     }
