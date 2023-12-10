@@ -67,12 +67,53 @@ def configure_analista_routes(app: Flask):
 
         Retorna para uma representação dos projetos e atividades relacionadas.
         """
+
         analista = Analista(
             nome=form.nome,
             sobrenome=form.sobrenome,
             usuario=form.usuario,
             email=form.email
             )
+
+        logger.info(f"Adicionando o analista '{analista.nome}' na base de dados")
+        try:
+            # criando conexão com a base de dados
+            session = Session()
+            # adicionando projeto
+            session.add(analista)
+            # efetivando o comando de add novo item na tabela
+            session.commit()
+            logger.debug(f"{analista.nome} adicionado com sucesso.")
+            return apresenta_analista(analista), 200
+        
+        except Exception as e:
+            # tratamento de erros
+            error_msg = "Não foi possível adicionar o analista"
+            logger.warning(f"Erro ao adicionar o analista '{analista.nome}', {error_msg}")
+            return {"message": error_msg}, 400
+
+
+    @app.post('/add_analista_json', tags=[analista_tag],
+            responses={"200": AnalistaViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+    def add_analista_json(form: AnalistaSchemaJson):
+        """ Adiciona um novo projeto a base de dados.
+
+        Retorna para uma representação dos projetos e atividades relacionadas.
+        """
+
+        data = request.json
+        
+        logger.debug(data)
+        print(data)
+        print('######################')
+        
+        analista = Analista(
+            nome=data.get('nome'),
+            sobrenome=data.get('sobrenome'),
+            usuario=data.get('usuario'),
+            email=data.get('email')
+        )
+
         logger.debug(f"Adicionando o analista '{analista.nome}' na base de dados")
         try:
             # criando conexão com a base de dados
@@ -91,6 +132,7 @@ def configure_analista_routes(app: Flask):
             return {"message": error_msg}, 400
 
 
+
     @app.put('/put_analista', tags=[analista_tag],
                 responses={"200": AnalistaViewSchema, "404": ErrorSchema})
     def put_analista(query: AnalistaBuscaSchema, form: AnalistaSchema):
@@ -99,7 +141,7 @@ def configure_analista_routes(app: Flask):
         Retorna uma mensagem de confirmação da remoção.
         """
         analista_id = query.id
-        logger.debug(f"Coletando dados sobre o Analista #{analista_id}")
+        logger.info(f"Coletando dados sobre o Analista #{analista_id}")
         # criando conexão com a base
         session = Session()
         # fazendo a busca
@@ -129,7 +171,7 @@ def configure_analista_routes(app: Flask):
         Retorna uma mensagem de confirmação da remoção.
         """
         analista_id = query.id
-        logger.debug(f"Deletando dados sobre analista #{analista_id}")
+        logger.info(f"Deletando dados sobre analista #{analista_id}")
         # criando conexão com a base
         session = Session()
         # fazendo a remoção

@@ -1,6 +1,6 @@
 from schemas.error import ErrorSchema
 
-from schemas.atendimento.analista import AnalistaSchema, AnalistaViewSchema, ListagemAnalistasSchema, AnalistaDelSchema, AnalistaBuscaSchema, apresenta_analistas, apresenta_analista
+from schemas.atendimento.analista import AnalistaSchema, AnalistaSchemaJson, AnalistaViewSchema, ListagemAnalistasSchema, AnalistaDelSchema, AnalistaBuscaSchema, apresenta_analistas, apresenta_analista
 from schemas.atendimento.atividade import AtividadeSchema, AtividadeViewSchema, ListagemAtividadesSchema, AtividadeDelSchema, AtividadeBuscaSchema, apresenta_atividades, apresenta_atividade
 from schemas.atendimento.processo import *
 

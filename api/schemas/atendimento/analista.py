@@ -13,6 +13,15 @@ class AnalistaSchema(BaseModel):
     email: str = "nome.sobrenome@tck.com"
 
 
+class AnalistaSchemaJson(BaseModel):
+    """ Define como um novo projeto a ser inserido deve ser representado.
+    """
+    nome: str = "Nome"
+    sobrenome: str = "Sobrenome"
+    usuario: str = "snome"
+    email: str = "nome.sobrenome@tck.com"
+
+
 class AnalistaViewSchema(BaseModel):
     """ Define como um novo projeto a ser inserido deve ser representado.
     """
