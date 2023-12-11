@@ -88,8 +88,5 @@ O frontend deve ser inicializado na sequencia e com acesso ao app.
 
 ## Utilização
 
-[Title](<../../Videos/Screencasts/Screencast from 2023-12-11 15-59-42.webm>)
+![Screencast from 2023-12-11 15-59-42(8)](https://github.com/cphenrique/ticket/assets/88631495/a5fe57fd-589e-4a54-ab6f-2ae86759d2b1)
 
-[Title](<../../Videos/Screencasts/Screencast from 2023-12-11 16-02-34.webm>)
-
-[Title](<../../Videos/Screencasts/Screencast from 2023-12-11 16-02-55.webm>)
