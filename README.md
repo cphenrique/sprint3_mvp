@@ -90,6 +90,8 @@ O frontend deve ser inicializado na sequencia e com acesso ao api.
 
 ![Screencast from 2023-12-11 15-59-42(8)](https://github.com/cphenrique/ticket/assets/88631495/a5fe57fd-589e-4a54-ab6f-2ae86759d2b1)
 
-Para o cadastro de novo analista, deve-se preencher os quatro campos no inicio da tabela com as informações de Nome, Sobrenome, Usuário e Email. Todos obrigatórios. Na sequência acionar o botão de "Adiciona" para inclusão do analista no banco de dados.
+Para o cadastro de novo analista, deve-se preencher os quatro campos no inicio da tabela com as informações de Nome, Sobrenome, Usuário e Email, todos obrigatórios. Na sequência acionar o botão de "Adiciona" para inclusão do analista no banco de dados.
+
 A edição do registro está liberada para os campos de Usuário e Email, necessário clicar na célula que deseja alteração e na sequência acionar o botão "Atualiza".
+
 Para a remoção do registo deve-se acionar o botão "Deleta" respectiva linha que deseja a remoção.
