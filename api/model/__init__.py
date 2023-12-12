@@ -20,7 +20,7 @@ from model.ticket.formulario_campo import FormularioCampo
 from model.ticket.valor import Valor
 
 # url de acesso ao banco
-db_url = 'postgresql://postgres:1234@localhost:5432/ticket'
+db_url = 'postgresql://postgres:1234@postgres-container:5432/ticket'
 
 # cria a engine de conexão com o banco
 engine = create_engine(db_url, echo=False)
