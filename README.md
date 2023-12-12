@@ -86,6 +86,10 @@ npm start
 
 O frontend deve ser inicializado na sequencia e com acesso ao api.
 
+O arquivo FIGMA base para o frontend segue abaixo
+
+https://www.figma.com/file/TZ5hl8LSrpDuh97PPqQOQ1/Home-Page?type=design&node-id=0%3A1&mode=dev
+
 ## Utilização
 
 ![Screencast from 2023-12-11 15-59-42(8)](https://github.com/cphenrique/ticket/assets/88631495/a5fe57fd-589e-4a54-ab6f-2ae86759d2b1)
